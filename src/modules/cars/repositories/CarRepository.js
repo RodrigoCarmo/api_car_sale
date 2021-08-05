@@ -63,7 +63,7 @@ class CarRepository {
         await client.db("car_sale").collection("cars").findOneAndUpdate(
             { _id: id },
             {
-                $set: {
+                "$set": {
                     brand,
                     model,
                     version,

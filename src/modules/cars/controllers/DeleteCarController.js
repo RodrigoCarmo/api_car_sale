@@ -7,9 +7,9 @@ async function DeleteCarController(request, response) {
 
     const deleteCarService = new DeleteCarService();
 
-    const deleteCar = await deleteCarService.execute(id);
+    await deleteCarService.execute(id);
 
-    return response.status(201).json(deleteCar)
+    return response.status(201).send()
 }
 
 
