@@ -131,4 +131,5 @@ As seguintes ferramentas foram usadas na construção do projeto:<br>
 - [Javascript](https://www.javascript.com/)
 - [MongoDB](https://www.mongodb.com/pt-br)
 - [Mongoose](https://mongoosejs.com/)
+- [ESLint](https://eslint.org/)
 
