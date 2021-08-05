@@ -130,5 +130,5 @@ As seguintes ferramentas foram usadas na construção do projeto:<br>
 - [Node.js](https://nodejs.org/en/)
 - [Javascript](https://www.javascript.com/)
 - [MongoDB](https://www.mongodb.com/pt-br)
-- [Mongoose] (https://mongoosejs.com/)
+- [Mongoose](https://mongoosejs.com/)
 
