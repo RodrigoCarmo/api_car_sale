@@ -1,14 +1,13 @@
-const { CarRepository } = require("../repositories/CarRepository");
+const { CarRepository } = require('../repositories/CarRepository')
 
 class ListAllCarsService {
+  async execute() {
+    const carRepository = new CarRepository()
 
-    async execute() {
-        const carRepository = new CarRepository();
+    const listAllCars = await carRepository.listAllCars()
 
-        const listAllCars = await carRepository.listAllCars();
-
-        return listAllCars;
-    }
+    return listAllCars
+  }
 }
 
 module.exports = { ListAllCarsService }

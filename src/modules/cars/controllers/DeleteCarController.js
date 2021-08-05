@@ -1,16 +1,13 @@
-const { DeleteCarService } = require("../useCases/DeleteCarService");
-
-
+const { DeleteCarService } = require('../useCases/DeleteCarService')
 
 async function DeleteCarController(request, response) {
-    const { id } = request.params
+  const { id } = request.params
 
-    const deleteCarService = new DeleteCarService();
+  const deleteCarService = new DeleteCarService()
 
-    await deleteCarService.execute(id);
+  await deleteCarService.execute(id)
 
-    return response.status(201).send()
+  return response.status(201).send()
 }
-
 
 module.exports = { DeleteCarController }
