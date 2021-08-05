@@ -23,6 +23,10 @@ class SearchCarService {
             sale_price
         });
 
+        if (searchCar === null) {
+            return {}
+        }
+
 
         return searchCar;
     }

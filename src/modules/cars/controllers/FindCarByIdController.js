@@ -1,17 +1,17 @@
 const { FindCarByIdService } = require("../useCases/FindCarByIdService");
 
-class FindCarByIdController {
 
-    async handle(request, response) {
 
-        const { id } = request.params
+async function FindCarByIdController(request, response) {
 
-        const findCarByIdService = new FindCarByIdService();
+    const { id } = request.params
 
-        const car = await findCarByIdService.execute(id);
+    const findCarByIdService = new FindCarByIdService();
 
-        return response.json({ car })
-    }
+    const car = await findCarByIdService.execute(id);
+
+    return response.json({ car })
 }
+
 
 module.exports = { FindCarByIdController }

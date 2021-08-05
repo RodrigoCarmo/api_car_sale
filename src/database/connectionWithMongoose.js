@@ -22,9 +22,4 @@ mongoose.connect(`${server}/${database}`,
 
 mongoose.Promise = global.Promise
 
-
-
-
-
-
 module.exports = mongoose

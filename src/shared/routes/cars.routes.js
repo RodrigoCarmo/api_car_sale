@@ -1,30 +1,26 @@
 const { Router } = require('express');
 
-const { CarCreateController } = require('../../modules/cars/controllers/CarCreateController.js');
+const { CreateCarController } = require("../../modules/cars/controllers/CarCreateController")
 const { DeleteCarController } = require('../../modules/cars/controllers/DeleteCarController.js');
 const { FindCarByIdController } = require('../../modules/cars/controllers/FindCarByIdController.js');
 const { ListCarsController } = require('../../modules/cars/controllers/ListCarsController.js');
 const { UpdateCarController } = require('../../modules/cars/controllers/UpdateCarController.js');
+const { carUpdateValidator, carValidationResult, carCreateValidator, carFindByIdValidator } = require('../../modules/cars/utils/validators.js');
 
 const carsRoutes = Router();
 
-const carCreateController = new CarCreateController();
-const listAllCarsController = new ListCarsController();
-const findCarByIdController = new FindCarByIdController();
-const updateCarController = new UpdateCarController();
-const deleteCarController = new DeleteCarController();
+
+carsRoutes.post('/', carCreateValidator, carValidationResult, CreateCarController)
+
+carsRoutes.get('/', ListCarsController);
 
 
-
-carsRoutes.post('/', carCreateController.handle);
-
-carsRoutes.get('/', listAllCarsController.handle);
-carsRoutes.get('/:id', findCarByIdController.handle);
+carsRoutes.get('/:id', carFindByIdValidator, carValidationResult, FindCarByIdController);
 
 
-carsRoutes.put('/:id', updateCarController.handle);
+carsRoutes.put('/:id', carUpdateValidator, carValidationResult, UpdateCarController);
 
-carsRoutes.delete('/:id', deleteCarController.handle);
+carsRoutes.delete('/:id', carFindByIdValidator, carValidationResult, DeleteCarController);
 
 module.exports = { carsRoutes }
 

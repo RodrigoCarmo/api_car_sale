@@ -1,15 +1,15 @@
 const { ListAllCarsService } = require("../useCases/ListAllCarsService");
 
-class ListCarsController {
 
-    async handle(request, response) {
 
-        const listAllCarsService = new ListAllCarsService();
+async function ListCarsController(request, response) {
 
-        const allCars = await listAllCarsService.execute();
+    const listAllCarsService = new ListAllCarsService();
 
-        return response.json(allCars)
-    }
+    const allCars = await listAllCarsService.execute();
+
+    return response.json(allCars)
 }
+
 
 module.exports = { ListCarsController }

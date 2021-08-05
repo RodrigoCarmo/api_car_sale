@@ -1,6 +1,5 @@
 const { MongoClient } = require('mongodb');
 
-const { mongoose } = require("mongoose")
 const CarModel = require('../../../database/schemas/Car');
 
 const uri = "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false";
@@ -29,9 +28,9 @@ class CarRepository {
             sale_price
         };
 
-        await CarModel.create(carObj);
+        const car = await CarModel.create(carObj);
 
-        return carObj;
+        return car;
 
     }
 
@@ -57,23 +56,39 @@ class CarRepository {
             gearshift,
             sale_price }) {
 
+
+
         await client.connect()
 
-        const update = await client.db("car_sale").collection("cars").updateOne({ _id: id }, {
-            "$set": {
-                "brand": brand,
-                "model": model,
-                "version": version,
-                "year": year,
-                "traveled_kilometer": traveled_kilometer,
-                "gearshift": gearshift,
-                "sale_price": sale_price
-            }
-        }, { upsert: true })
+        await client.db("car_sale").collection("cars").findOneAndUpdate(
+            { _id: id },
+            {
+                $set: {
+                    brand,
+                    model,
+                    version,
+                    year,
+                    traveled_kilometer,
+                    gearshift,
+                    sale_price
+                }
+            },
+        )
 
-        await client.close()
+        await client.close();
 
-        return update;
+        const updatedCar = {
+            id,
+            brand,
+            model,
+            version,
+            year,
+            traveled_kilometer,
+            gearshift,
+            sale_price
+        }
+
+        return updatedCar;
     }
 
     async deleteCar(id) {
@@ -92,31 +107,38 @@ class CarRepository {
         sale_price
     }) {
 
+        if (brand) {
+            const brandfilter = await CarModel.find({ brand: { $regex: brand, $options: 'i' } })
+            return brandfilter
+        }
 
-        const cars = await CarModel.find({
-            "$or": [{
-                "brand": brand
-            },
-            {
-                "model": model
-            },
-            {
-                "version": version
-            },
-            {
-                "traveled_kilometer": traveled_kilometer
-            },
-            {
-                "gearshift": gearshift
-            },
-            ]
+        if (model) {
+            const modelFilter = await CarModel.find({ model: { $regex: model, $options: 'i' } })
+            return modelFilter
+        }
 
-        })
+        if (version) {
+            const versionFilter = await CarModel.find({ version: { $regex: version, $options: 'i' } })
+            return versionFilter
+        }
+
+        if (traveled_kilometer) {
+            const traveled_kilometerFilter = await CarModel.find({ traveled_kilometer: { $lte: traveled_kilometer } })
+
+            return traveled_kilometerFilter;
+        }
+
 
         if (year) {
-            const carYearRangeMax = await CarModel.find({ "year": { $lte: year } })
+            const carYearRangeMax = await CarModel.find({ year: { $lte: year } })
 
             return carYearRangeMax;
+        }
+
+        if (gearshift) {
+            const gearshiftFilter = await CarModel.find({ gearshift: { $lte: gearshift } })
+
+            return gearshiftFilter;
         }
 
         if (sale_price) {
@@ -125,7 +147,6 @@ class CarRepository {
             return priceRangeMax;
         }
 
-        return cars;
 
     }
 }

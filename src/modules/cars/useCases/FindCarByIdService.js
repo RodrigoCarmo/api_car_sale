@@ -12,6 +12,7 @@ class FindCarByIdService {
 
         const findCarById = await carRepository.findOneById(id)
 
+
         return findCarById;
     }
 }

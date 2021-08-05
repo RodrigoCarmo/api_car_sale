@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 
 async function main() {
 
-    const uri = "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false";
+    const uri = process.env.MONGODB_URI;
 
     const client = new MongoClient(uri);
 

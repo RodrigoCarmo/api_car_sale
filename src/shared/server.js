@@ -1,3 +1,4 @@
+require('dotenv/config');
 require('../database');
 const express = require('express');
 require('express-async-errors');
@@ -14,6 +15,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(router);
 
 
-app.listen(3331, () => console.log('😎😎Server tá top👌'));
+app.listen(process.env.PORT, () => console.log('😎😎Server tá top👌'));
 
 
