@@ -8,8 +8,8 @@
 ### ⚙Configurando 
 
 -Caso deseje executar a API da mesma forma, será necessário a instalação do MongoDB<br>
--Configure o banco de dados na pasta database através do "connectionWithMongoose" para o uso do Mongoose e do "index" para o uso do próprio MongoDB<br>
-- Se deseja utilizar na porta padrão, não precisa fazer nada :)<br>
+-Configure as variáveis de ambiente caso queira alterar as portas da aplicação.<br>
+-Se deseja utilizar a porta padrão do MongoDB e a porta 3331 do servidor node, não precisa fazer nada :)<br>
 
 
 ### 🗃Rodando API
