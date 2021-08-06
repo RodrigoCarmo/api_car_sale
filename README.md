@@ -1,5 +1,7 @@
 # 👨‍🏫Instruções
 
+**Para rodar o exemplo de teste deve-se descomentar a variável "MODE" do .env<br>
+
 ### 👨‍💻Clonar projeto
 
 -Clone o projeto na sua máquina; <br>
