@@ -1,6 +1,6 @@
 # 👨‍🏫Instruções
 
-**Para rodar o exemplo de teste em jest deve-se descomentar a variável "MODE" do .env e rodar '''yarn test'''<br>
+**Para rodar o exemplo de teste em jest deve-se descomentar a variável "MODE" do .env e rodar  ```yarn test```<br>
 
 ### 👨‍💻Clonar projeto
 
