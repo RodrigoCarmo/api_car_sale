@@ -1,4 +1,4 @@
-const mongoose = require('../connectionWithMongoose')
+const mongoose = require('../index')
 
 const CarSchema = new mongoose.Schema({
   brand: {
@@ -39,6 +39,6 @@ const CarSchema = new mongoose.Schema({
   }
 })
 
-const CarModel = mongoose.model('Car', CarSchema)
+const CarModel = mongoose.model('cars', CarSchema)
 
 module.exports = CarModel

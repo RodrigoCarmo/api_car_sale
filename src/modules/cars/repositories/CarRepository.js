@@ -1,10 +1,4 @@
-const { MongoClient } = require('mongodb')
-
 const CarModel = require('../../../database/schemas/Car')
-
-const uri = 'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false'
-
-const client = new MongoClient(uri)
 
 class CarRepository {
   async create({
@@ -54,27 +48,7 @@ class CarRepository {
       gearshift,
       sale_price
     }) {
-    await client.connect()
-
-    await client.db('car_sale').collection('cars').findOneAndUpdate(
-      { _id: id },
-      {
-        $set: {
-          brand,
-          model,
-          version,
-          year,
-          traveled_kilometer,
-          gearshift,
-          sale_price
-        }
-      }
-    )
-
-    await client.close()
-
-    const updatedCar = {
-      id,
+    const carObj = {
       brand,
       model,
       version,
@@ -84,7 +58,7 @@ class CarRepository {
       sale_price
     }
 
-    return updatedCar
+    await CarModel.updateOne({ _id: id }, carObj)
   }
 
   async deleteCar(id) {

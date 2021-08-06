@@ -7,7 +7,11 @@ async function FindCarByIdController(request, response) {
 
   const car = await findCarByIdService.execute(id)
 
-  return response.json({ car })
+  if (car === null) {
+    return response.status(404).send()
+  }
+
+  return response.status(201).json(car)
 }
 
 module.exports = { FindCarByIdController }

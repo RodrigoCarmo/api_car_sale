@@ -1,18 +1,25 @@
-const { MongoClient } = require('mongodb')
+const mongoose = require('mongoose')
 
-async function main() {
-  const uri = process.env.MONGODB_URI
+const server = 'mongodb://localhost:27017'
+const database = 'car_sale'
 
-  const client = new MongoClient(uri)
+mongoose.connect(`${server}/${database}`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
 
-  try {
-    await client.connect()
-    console.log('Banco de dados tá bala pae😎😎')
-  } catch (e) {
-    console.log(e)
-  } finally {
-    await client.close()
   }
-}
+).then(() => {
+  console.log('Succesfully connect to MongoDB')
+})
 
-main().catch(console.error)
+  .catch(err => {
+    console.log('Connection error', err)
+    process.exit()
+  })
+
+mongoose.Promise = global.Promise
+
+module.exports = mongoose

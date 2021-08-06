@@ -12,9 +12,11 @@ async function UpdateCarController(request, response) {
     sale_price
   } = request.body
 
+  console.log(request.params)
+
   const updateCarService = new UpdateCarService()
 
-  const car = await updateCarService.execute({
+  await updateCarService.execute({
     id,
     brand,
     model,
@@ -25,7 +27,7 @@ async function UpdateCarController(request, response) {
     sale_price
   })
 
-  return response.json({ car })
+  return response.status(201).send()
 }
 
 module.exports = { UpdateCarController }
