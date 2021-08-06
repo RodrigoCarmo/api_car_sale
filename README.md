@@ -135,4 +135,6 @@ As seguintes ferramentas foram usadas na construção do projeto:<br>
 - [Mongoose](https://mongoosejs.com/)
 - [ESLint](https://eslint.org/)
 - [Jest](https://jestjs.io/pt-BR/)
+- [Nodemon](https://nodemon.io/)
+- [Express](https://expressjs.com/pt-br/)
 
