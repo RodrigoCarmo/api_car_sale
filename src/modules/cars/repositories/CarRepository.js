@@ -1,6 +1,6 @@
 const CarModel = require('../../../database/schemas/Car')
 
-class CarRepository {
+const CarRepository = {
   async create({
     brand,
     model,
@@ -23,19 +23,18 @@ class CarRepository {
     const car = await CarModel.create(carObj)
 
     return car
-  }
+  },
 
   async listAllCars() {
     const cars = await CarModel.find()
 
     return cars
-  }
-
+  },
   async findOneById(id) {
     const carById = await CarModel.findById(id)
 
     return carById
-  }
+  },
 
   async updateCar(
     {
@@ -59,13 +58,13 @@ class CarRepository {
     }
 
     await CarModel.updateOne({ _id: id }, carObj)
-  }
+  },
 
   async deleteCar(id) {
     const car = await CarModel.deleteOne({ _id: id })
 
     return car
-  }
+  },
 
   async searchCar({
     brand,

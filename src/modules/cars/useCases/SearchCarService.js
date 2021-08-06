@@ -1,6 +1,7 @@
 const { CarRepository } = require('../repositories/CarRepository')
 
-class SearchCarService {
+const SearchCarService = {
+
   async execute({
     brand,
     model,
@@ -10,9 +11,9 @@ class SearchCarService {
     gearshift,
     sale_price
   }) {
-    const carRepository = new CarRepository()
+    this.carRepository = CarRepository
 
-    const searchCar = await carRepository.searchCar({
+    const searchCar = await this.carRepository.searchCar({
       brand,
       model,
       version,

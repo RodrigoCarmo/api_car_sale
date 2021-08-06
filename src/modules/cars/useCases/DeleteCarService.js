@@ -1,16 +1,23 @@
 const { CarRepository } = require('../repositories/CarRepository')
+const { CarRepositoryInMemory } = require('../repositories/CarRepository')
 
-class DeleteCarService {
+const DeleteCarService = {
+  carRepository: undefined,
+
   async execute(id) {
-    const carRepository = new CarRepository()
+    if (process.env.MODE === 'develop') {
+      this.carRepository = CarRepositoryInMemory
+    }
 
-    const checkId = carRepository.findOneById(id)
+    this.carRepository = CarRepository
+
+    const checkId = await this.carRepository.findOneById(id)
 
     if (!checkId) {
       console.log('This car id is invalid!')
     }
 
-    const deleteCar = await carRepository.deleteCar(id)
+    const deleteCar = await this.carRepository.deleteCar(id)
 
     return deleteCar
   }

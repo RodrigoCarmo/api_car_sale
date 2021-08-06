@@ -3,7 +3,7 @@ const { DeleteCarService } = require('../useCases/DeleteCarService')
 async function DeleteCarController(request, response) {
   const { id } = request.params
 
-  const deleteCarService = new DeleteCarService()
+  const deleteCarService = DeleteCarService
 
   await deleteCarService.execute(id)
 

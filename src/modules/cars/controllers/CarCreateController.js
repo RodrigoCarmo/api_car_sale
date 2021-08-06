@@ -11,7 +11,7 @@ async function CreateCarController(request, response) {
     sale_price
   } = request.body
 
-  const createCarSaleService = new CreateCarSaleService()
+  const createCarSaleService = CreateCarSaleService
 
   const service = await createCarSaleService.execute({
     brand,

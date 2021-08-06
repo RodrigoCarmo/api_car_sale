@@ -14,7 +14,7 @@ async function UpdateCarController(request, response) {
 
   console.log(request.params)
 
-  const updateCarService = new UpdateCarService()
+  const updateCarService = UpdateCarService
 
   await updateCarService.execute({
     id,

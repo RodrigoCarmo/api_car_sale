@@ -11,7 +11,7 @@ async function SearchCarController(request, response) {
     sale_price
   } = request.query
 
-  const searchCarService = new SearchCarService()
+  const searchCarService = SearchCarService
 
   const searchCar = await searchCarService.execute(
     {

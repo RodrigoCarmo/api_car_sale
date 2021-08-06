@@ -1,10 +1,15 @@
 const { CarRepository } = require('../repositories/CarRepository')
 
-class ListAllCarsService {
+const ListAllCarsService = {
+  carRepository: undefined,
   async execute() {
-    const carRepository = new CarRepository()
+    if (process.env.MODE === 'develop') {
+      this.carRepository = CarRepositoryInMemory
+    }
 
-    const listAllCars = await carRepository.listAllCars()
+    this.carRepository = CarRepository
+
+    const listAllCars = await this.carRepository.listAllCars()
 
     return listAllCars
   }

@@ -1,6 +1,8 @@
 const { CarRepository } = require('../repositories/CarRepository')
+const { CarRepositoryInMemory } = require('../repositories/CarRepository')
 
-class CreateCarSaleService {
+const CreateCarSaleService = {
+  carRepository: undefined,
   async execute({
     brand,
     model,
@@ -10,9 +12,13 @@ class CreateCarSaleService {
     gearshift,
     sale_price
   }) {
-    const carRepository = new CarRepository()
+    if (process.env.MODE === 'develop') {
+      this.carRepository = CarRepositoryInMemory
+    }
 
-    const createCarSale = await carRepository.create({
+    this.carRepository = CarRepository
+
+    const createCarSale = await this.carRepository.create({
       brand,
       model,
       version,
