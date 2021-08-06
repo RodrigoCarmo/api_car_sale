@@ -5,7 +5,7 @@
 ### 👨‍💻Clonar projeto
 
 -Clone o projeto na sua máquina; <br>
--Com o projeto clonado, realize a instalação das dependências de preferência com o "yarn";<br>
+-Com o projeto clonado, realize a instalação das dependências de preferência com o ```yarn```<br>
 
 ### ⚙Configurando 
 
@@ -16,11 +16,11 @@
 
 ### 🗃Rodando API
 
--Com tudo configurado basta executar o servidor normalmente, caso queira, verifique o "package.json" para utilizar os scripts de execução;<br>
+-Com tudo configurado basta executar o servidor normalmente, caso queira, verifique o ```package.json``` para utilizar os scripts de execução;<br>
 
 ### 💻🖱Testando rotas
--Para executar o servidor rode '''yarn server:dev'''
--Após a execução do servidor, execute uma requisição do tipo POST como teste na rota "http://localhost:3331/api-cars" utilizando o Insomnia ou outro de sua preferência, enviando os seguintes dados em JSON:<br>
+-Para executar o servidor rode ```yarn server:dev```
+-Após a execução do servidor, execute uma requisição do tipo POST como teste na rota ```http://localhost:3331/api-cars``` utilizando o Insomnia ou outro de sua preferência, enviando os seguintes dados em JSON:<br>
 
 ####Criação do Carro
 
@@ -41,10 +41,10 @@
 -Se tudo estiver ok você receberá um status200 com o retorno da criação do carro.<br>
 
 ####Listagem de Carros
--Nesta rota você deve enviar a requisição do tipo GET para a rota: "http://localhost:3331/api-cars", feito isso você obterá todos os carros registrados.<br>
+-Nesta rota você deve enviar a requisição do tipo GET para a rota: ```http://localhost:3331/api-cars```, feito isso você obterá todos os carros registrados.<br>
 
 #### Listagem por ID
--Aqui você poderá listar um carro específico através do seu ID, basta consultar o ID que você recebeu na criação do carro e colocá-lo  como um parâmetro de rota, por exemplo:"http://localhost:3331/api-cars/<Aqui você põe o ID>" e terá algo retornado como:<br>
+-Aqui você poderá listar um carro específico através do seu ID, basta consultar o ID que você recebeu na criação do carro e colocá-lo  como um parâmetro de rota, por exemplo: ```http://localhost:3331/api-cars/<Aqui você põe o ID>``` e terá algo retornado como:<br>
 
 ```JSON
 
@@ -67,7 +67,7 @@
 
 
 #### Atualização do carro
--Você deverá passar o ID como parâmetro dentro da rota PUT, "http://localhost:3331/api-cars/<Aqui você põe o ID>" e o corpo da requisição deverá ter os dados para a alteração da seguinte forma:<br>
+-Você deverá passar o ID como parâmetro dentro da rota PUT, ```http://localhost:3331/api-cars/<Aqui você põe o ID>``` e o corpo da requisição deverá ter os dados para a alteração da seguinte forma:<br>
 
 ```JSON
 
@@ -86,11 +86,11 @@
 
 
 #### Deleção do carro
--Aqui basta passar o ID no parâmetro da rota de tipo DELETE para remover o carro desejado, exemplo: "http://localhost:3331/api-cars/<Aqui você põe o ID>"
+-Aqui basta passar o ID no parâmetro da rota de tipo DELETE para remover o carro desejado, exemplo: ```http://localhost:3331/api-cars/<Aqui você põe o ID>```
 -Pronto, carro deletado :)
 
 #### Filtro de carro
--Você poderá filtrar os carros pelos atributos, e nos campos de preço e ano, você determina o valor máximo para o carro requerido, basta passar através dos parâmetro de query na rota: "http://localhost:3331/search".<br>
+-Você poderá filtrar os carros pelos atributos, e nos campos de preço e ano, você determina o valor máximo para o carro requerido, basta passar através dos parâmetro de query na rota: ```http://localhost:3331/search```.<br>
 -Abaixo um exemplo de consulta para carros com valor máximo de 30 mil reais: 
 
 ```JSON
