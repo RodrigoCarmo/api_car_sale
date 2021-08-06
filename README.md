@@ -44,7 +44,7 @@
 -Nesta rota você deve enviar a requisição do tipo **GET** para a rota: ```http://localhost:3331/api-cars```, feito isso você obterá todos os carros registrados.<br>
 
 #### Listagem por ID
--Aqui você poderá listar um carro específico através do seu ID, basta consultar o ID que você recebeu na criação do carro e colocá-lo  como um parâmetro de rota, por exemplo: ```http://localhost:3331/api-cars/<Aqui você põe o ID>``` e terá algo retornado como:<br>
+-Aqui você poderá listar um carro pela rota de tipo **GET** específico através do seu ID, basta consultar o ID que você recebeu na criação do carro e colocá-lo  como um parâmetro de rota, por exemplo: ```http://localhost:3331/api-cars/<Aqui você põe o ID>``` e terá algo retornado como:<br>
 
 ```JSON
 
