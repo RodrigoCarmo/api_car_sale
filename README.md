@@ -8,8 +8,8 @@
 ### ⚙Configurando 
 
 -Caso deseje executar a API da mesma forma, será necessário a instalação do MongoDB<br>
--Configure o banco de dados na pasta database através do "connectionWithMongoose" para o uso do Mongoose e do "index" para o uso do próprio MongoDB<br>
-- Se deseja utilizar na porta padrão, não precisa fazer nada :)<br>
+-Configure as variáveis de ambiente caso queira alterar as portas da aplicação.<br>
+-Se deseja utilizar a porta padrão do MongoDB e a porta 3331 do servidor node, não precisa fazer nada :)<br>
 
 
 ### 🗃Rodando API
@@ -20,7 +20,7 @@
 
 -Após a execução do servidor, execute uma requisição do tipo POST como teste na rota "http://localhost:3331/api-cars" utilizando o Insomnia ou outro de sua preferência, enviando os seguintes dados em JSON:<br>
 
-####Criação de Carro
+####Criação do Carro
 
 ```JSON
 
@@ -131,4 +131,5 @@ As seguintes ferramentas foram usadas na construção do projeto:<br>
 - [Javascript](https://www.javascript.com/)
 - [MongoDB](https://www.mongodb.com/pt-br)
 - [Mongoose](https://mongoosejs.com/)
+- [ESLint](https://eslint.org/)
 
